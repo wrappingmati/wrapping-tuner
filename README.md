@@ -69,7 +69,7 @@ Este proyecto está bajo la licencia **MIT**, lo que significa que podés usarlo
 
 ## 💻 Demo en vivo
 
-👉 [wrappingmati.github.io/wrapping-tuner](#) *(actualiza el link cuando lo subas a GitHub Pages o Netlify)*
+👉 [https://wrapping-tuner.netlify.app/](#) 
 
 ---
 
