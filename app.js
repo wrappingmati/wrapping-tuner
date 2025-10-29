@@ -1,29 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wrapping Tuner - Afinador de Guitarra</title>
-  <link rel="stylesheet" href="style.css">
-  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-   <link rel="shortcut icon" href="imagenes/wrappingtuner.ico">
-</head>
-
-<body>
-  <div class="contenedor">
-    <img id="wrapping-logo" src="imagenes/zorro guitarra.png" alt="Logo del desarrollador wrappingmati">
-    <h1>WrappingTuner</h1>
-    <p>Afinador de guitarra en tiempo real desarrollado con HTML5, CSS3, JavaScript y Web Audio API.</p>
-
-    <div id="note">-</div>
-    <div id="freq">0 Hz</div>
-    
-    <canvas id="tunerCanvas" width="400" height="200"></canvas>
-
-    <button id="boton" class='bxr bx-microphone-alt' style='color:#9B87F5' onclick="startTuner()"></button>
-  </div>
-
-  <script>
     let audioContext, analyser, dataArray, canvas, ctx;
 
     const notes = [
@@ -36,6 +10,9 @@
     ];
 
     function startTuner() {
+        const boton = document.getElementById("boton");
+        boton.classList.add("active");
+        
       navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const source = audioContext.createMediaStreamSource(stream);
@@ -159,19 +136,3 @@
         Math.abs(curr.freq - freq) < Math.abs(prev.freq - freq) ? curr : prev
       );
     }
-  </script>
-    <footer>
-
-    <div class="social-icons-container">
-      <a href="https://www.facebook.com/profile.php?id=100065672852081" target="_blank" class="social-icon"></a>
-      <a href="https://www.instagram.com/wrappingmati/?theme=dark " target="_blank" class="social-icon"></a>
-      <a href="https://www.linkedin.com/in/matias-casas-413910257/" class="social-icon" target="_blank"></a>
-      <a href="mailto:wrappingmati@gmail.com" class="social-icon" target="_blank"></a>
-
-    </div>
-   
-    <span class="copyright">&copy;2025, wrappingmati. Todos los derechos reservados.</span>
-  </footer>
-</body>
-
-</html>

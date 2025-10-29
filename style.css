@@ -66,9 +66,19 @@ p{
     cursor:pointer
   }
 
-button:hover{
-    background-color:#2a3246 ;
+#boton:hover {
+  background-color: #2a3246;
+  color: #fff;
+  transition: 0.3s;
 }
+
+#boton.active {
+  background-color: #2a3246;
+  color: #fff;
+
+}
+
+
 /* //empieza footer */
  footer{
     width: 100%;
@@ -96,9 +106,9 @@ button:hover{
     width: 50px;
     border-radius: 50px;
     border: 1px solid #f2f2f2;
-    background-image: url(../iconos/facebook.png);
+    background-image: url(../iconos/github.png);
     background-position: center;
-    background-size: 40%;
+    background-size: 60%;
     background-repeat: no-repeat;
     margin:1rem;
 }
