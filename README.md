@@ -1,4 +1,4 @@
-# 🎸 WrappingTuner
+# 🎸 Wrapping Tune
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
@@ -10,7 +10,7 @@
 
 ## 🦊 Descripción
 
-**WrappingTuner** es un afinador de guitarra en tiempo real desarrollado con **HTML5**, **CSS3** y **JavaScript puro**, utilizando la **Web Audio API** para el procesamiento de señal y detección de frecuencias.  
+**Wrapping Tune** es un afinador de guitarra en tiempo real desarrollado con **HTML5**, **CSS3** y **JavaScript puro**, utilizando la **Web Audio API** para el procesamiento de señal y detección de frecuencias.  
 Diseñado con un enfoque minimalista y moderno, forma parte del ecosistema de proyectos de [WrappingMati](https://wrappingmati.com.ar) 🎧
 
 ---
