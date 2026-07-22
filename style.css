@@ -1,5 +1,4 @@
-
-    body {
+body {
         justify-content: center;
          align-items: center;
         /* height: 100vh; */
@@ -21,6 +20,12 @@
     #freq { 
         font-size: 20px;
          color: #9B87F5; }
+
+    #cents {
+        font-size: 14px;
+        min-height: 18px;
+        color: #94A1AA;
+    }
 
     canvas {
          
@@ -55,6 +60,99 @@ p{
     
     }  
 
+    /* ---------- selector de afinación ---------- */
+    .tuning-selector {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .tuning-chip {
+        background: none;
+        border: 1px solid #9B87F5;
+        color: #9B87F5;
+        border-radius: 20px;
+        padding: 6px 14px;
+        font-size: 13px;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .tuning-chip:hover {
+        background-color: #2a3246;
+        color: #fff;
+    }
+
+    .tuning-chip.active {
+        background-color: #9B87F5;
+        color: #1A1F2C;
+        font-weight: bold;
+    }
+
+    /* ---------- cuerdas ---------- */
+    .strings-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 18px;
+    }
+
+    .string-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 54px;
+        border-radius: 12px;
+        border: 1px solid #9B87F5;
+        background: none;
+        color: #94A1AA;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: Arial, sans-serif;
+    }
+
+    .string-btn .string-num {
+        font-size: 10px;
+        opacity: 0.7;
+    }
+
+    .string-btn .string-note {
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .string-btn:hover {
+        background-color: #2a3246;
+    }
+
+    .string-btn.locked {
+        background-color: #9B87F5;
+    }
+
+    .string-btn.locked .string-note {
+        color: #1A1F2C;
+    }
+
+    .string-btn.detected {
+        box-shadow: 0 0 8px 2px rgba(0, 255, 153, 0.6);
+        border-color: #00ff99;
+    }
+
+    .hint {
+        font-size: 13px !important;
+        color: #94A1AA !important;
+        opacity: 0.8;
+        line-height: 1.4 !important;
+        max-width: 320px;
+    }
+
     #boton {
     width: 20%;
     padding: 10px;
@@ -63,7 +161,9 @@ p{
     margin: 20px;
     font-size: 30px;
     border: 1px solid #9B87F5;
-    cursor:pointer
+    cursor:pointer;
+    color: #9B87F5;
+    
   }
 
 #boton:hover {
@@ -122,7 +222,7 @@ p{
     border: 1px solid #f2f2f2;
     background-image: url(../iconos/github.png);
     background-position: center;
-    background-size: 60%;
+    background-size: 40%;
     background-repeat: no-repeat;
     margin:1rem;
 }
@@ -170,46 +270,160 @@ p{
 
 /* termina foooter */
 
+/* =====================================================================
+   MOBILE — estilo tipo GuitarTuna: pantalla completa, tabs de cuerdas
+   grandes, nota central protagonista, botón circular flotante.
+   ===================================================================== */
 @media (max-width: 768px){
-  
+
+ body{
+  display: block;
+  min-height: 100dvh;
+  background-color: #1A1F2C;
+ }
 
  .contenedor{ 
-  width: 80%;
-  height: 60vh;
- transform: scale(0.9)
+  width: 100%;
+  min-height: 100dvh;
+  padding: 18px 14px 24px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  transform: none;
 }
+
 #wrapping-logo{
   display: none;
 }
- #note {
-    font-size: 48px;
-  }
 
-  #freq {
-    font-size: 18px;
-  }
- 
-  canvas {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  #boton {
-    font-size: 35px;
-    padding: 12px 4px;
-    margin: 0;
-    
-   
-  }
-
-  .social-icon{
-    height: 35px;
-    width: 35px;
-   margin: 5px;
-   
+h1{
+  font-size: 18px;
+  margin: 4px 0 2px;
 }
+
+p{
+  font-size: 12px !important;
+  line-height: 1.35rem !important;
+  margin: 0 0 14px;
+  opacity: 0.7;
+}
+
+/* selector de afinación: tabs deslizables arriba, como el menú de
+   instrumentos/afinaciones de GuitarTuna */
+.tuning-selector{
+  width: 100%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  scrollbar-width: none;
+}
+.tuning-selector::-webkit-scrollbar{ display:none; }
+
+.tuning-chip{
+  flex: 0 0 auto;
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+/* cuerdas: tabs grandes en una sola fila, ocupando todo el ancho,
+   como los botones E-A-D-G-B-E de GuitarTuna */
+.strings-row{
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.string-btn{
+  flex: 1 1 0;
+  width: auto;
+  height: 58px;
+  border-radius: 14px;
+}
+
+.string-btn .string-note{
+  font-size: 16px;
+}
+
+/* nota central: el gran protagonista de la pantalla */
+#note {
+    font-size: 88px;
+    margin: 22px 0 0;
+    line-height: 1;
+}
+
+#freq {
+  font-size: 15px;
+}
+
+#cents{
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+canvas {
+  width: 100% !important;
+  max-width: 320px;
+  height: auto !important;
+  margin-top: 16px;
+}
+
+.hint{
+  font-size: 12px !important;
+  margin-top: 10px;
+}
+
+/* botón de mic: circular, dentro del flujo normal (ya no fixed,
+   para no pisar el footer), estilo botón de encendido de app */
+#boton {
+  position: static;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  margin: 24px 0 6px;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #9B87F5;
   
+  color: #12151f;
+  box-shadow: 0 6px 18px rgba(155, 135, 245, 0.35);
   
+}
+
+#boton:hover{
+  background-color: #9B87F5;
+  color: #12151f;
+}
+
+#boton.active{
+  background-color: #9B87F5;
+  color: #12151f;
+  animation: pulse-mobile 1.5s infinite;
+}
+
+@keyframes pulse-mobile {
+  0% { box-shadow: 0 0 0 0 rgba(155, 135, 245, 0.55); }
+  70% { box-shadow: 0 0 0 16px rgba(155, 135, 245, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(155, 135, 245, 0); }
+}
+
+.social-icon{
+  height: 35px;
+  width: 35px;
+  margin: 5px;
+}
+
+footer{
+  position: static;
+  padding: 6px 0;
+}
+
  } 
   
 @media (min-width: 1024px) and (max-width: 1440px) and (max-height: 1100px) {
@@ -238,6 +452,10 @@ body{
     #freq { 
         font-size: 10px;
          color: #9B87F5; }
+
+    #cents {
+        font-size: 11px;
+    }
 
     canvas {
          
@@ -271,8 +489,14 @@ p{
     border-radius: 20px;
     font-size: 30px;
     border: 1px solid #9B87F5;
-    cursor:pointer
+    cursor:pointer;
+    
   }
+
+.string-btn{
+  width: 38px;
+  height: 46px;
+}
 
 
     }

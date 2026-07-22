@@ -32,8 +32,6 @@
     content="Afinador de guitarra en tiempo real desarrollado con HTML5, CSS3 y JavaScript por wrappingmati. Perfecto para músicos de todos los niveles.">
   <meta name="twitter:image" content="https://wrapping-tune.netlify.app/imagenes/wrappingtuner-og.png">
 
-
-
 </head>
 
 <body>
@@ -43,12 +41,27 @@
     <p>Afinador de guitarra en tiempo real desarrollado con HTML5, CSS3, JavaScript y Web Audio API por wrappingmati.
     </p>
 
+    <div class="tuning-selector" id="tuningSelector" role="group" aria-label="Elegir afinación">
+      <button type="button" class="tuning-chip active" data-tuning="standard" aria-pressed="true">Estándar</button>
+      <button type="button" class="tuning-chip" data-tuning="dropD" aria-pressed="false">Drop D</button>
+      <button type="button" class="tuning-chip" data-tuning="halfStepDown" aria-pressed="false">½ tono abajo</button>
+      <button type="button" class="tuning-chip" data-tuning="dropCSharp" aria-pressed="false">Drop C#</button>
+      <button type="button" class="tuning-chip" data-tuning="wholeStepDown" aria-pressed="false">1 tono abajo</button>
+      <button type="button" class="tuning-chip" data-tuning="dropC" aria-pressed="false">Drop C</button>
+    </div>
+
+    <div class="strings-row" id="stringsRow" role="group" aria-label="Cuerdas de la afinación elegida">
+      <!-- generado dinámicamente por app.js -->
+    </div>
+
     <div id="note">-</div>
     <div id="freq">0 Hz</div>
+    <div id="cents">&nbsp;</div>
 
-    <canvas id="tunerCanvas" width="400" height="200"></canvas>
+    <canvas id="tunerCanvas" width="400" height="120"></canvas>
 
-    <button id="boton" class='bxr bx-microphone-alt' style='color:#9B87F5' onclick="startTuner()"></button>
+    <button id="boton" class='bxr bx-microphone-alt'  onclick="startTuner()"></button>
+    <p class="hint" id="hint">Elegí una cuerda para fijarla, o tocá cualquiera: el afinador la detecta sola.</p>
   </div>
 
   <script src="app.js" defer>
