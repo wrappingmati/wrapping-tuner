@@ -76,7 +76,7 @@ Este proyecto está bajo la licencia **MIT**, lo que significa que podés usarlo
 
 ## 💻 Demo en vivo
 
-👉 [https://wrapping-tuner.netlify.app/]
+👉 [https://wrapping-tune.netlify.app/]
 
 ---
 
